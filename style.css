@@ -14,29 +14,30 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    /* background-color: yellow; */
+    background-color: rgb(31, 31, 31);
 }
 
 .box-btn {
+    position: relative;
     height: 300px;
     width: 300px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
-    background-color: yellow;
-
+    /* background-color: yellow; */
 }
 
 .btn-icon {
     position: absolute;
-    top: 50%;
-    left: 50%;
     height: 50px;
     width: 50px;
     border-radius: 50%;
     border: none;
     color: black;
     border: 1px solid black;
-    background-color: rgb(206, 206, 206);
-    transform: translate(-50%, -50%);
+    background-color: rgb(233, 233, 233);
 }
 
 .btn-icon i {
@@ -44,19 +45,78 @@
     font-size: 1.5rem;
 }
 
+/*----Botão Principal----*/
+
 #btn01 {
     color: white;
     border: 1px solid rgb(87, 86, 86);
     background-color: rgb(68, 67, 67);
-    z-index: 1;
+    z-index: 10;
 }
+
+/*----Botões Animados----*/
 
 #btn02 {
-    animation: espalhar 0.5s ease;
+    transition: translate 0.5s ease-out;
+    z-index: 9;
 }
 
-.btn-ativo {
-    top: ;
+#btn02.ativo {
+    translate: 0px -120px;
+}
+
+#btn03 {
+    transition: translate 0.5s ease-out;
+    z-index: 9;
+}
+
+#btn03.ativo {
+    translate: 90px -80px;
+}
+
+#btn04 {
+    transition: translate 0.5s ease-out;
+    z-index: 9;
+}
+
+#btn04.ativo {
+    translate: 120px 20px;
+}
+
+#btn05 {
+    transition: translate 0.5s ease-out;
+    z-index: 9;
+}
+
+#btn05.ativo {
+    translate: 60px 100px;
+}
+
+#btn06 {
+    transition: translate 0.5s ease-out;
+    z-index: 9;
+}
+
+#btn06.ativo {
+    translate: -60px 100px;
+}
+
+#btn07 {
+    transition: translate 0.5s ease-out;
+    z-index: 9;
+}
+
+#btn07.ativo {
+    translate: -120px 20px;
+}
+
+#btn08 {
+    transition: translate 0.5s ease-out;
+    z-index: 9;
+}
+
+#btn08.ativo {
+    translate: -90px -80px;
 }
 
 @keyframes espalhar {
