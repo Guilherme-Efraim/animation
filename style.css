@@ -4,17 +4,32 @@
     box-sizing: border-box;
 }
 
-.style-container {
+main {
     display: flex;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background: url(./img/hexagon-abstract_9627101.jpg!f305cw);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: rgb(31, 31, 31);
+    background-color: rgb(65, 65, 65);
+}
+
+main h1 {
+    text-align: center;
+    width: 450px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 30px;
+}
+
+.style-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    width: 50%;
+    border-radius: 10px;
+    background-color: rgb(27, 27, 27);
 }
 
 .box-btn {
@@ -28,6 +43,8 @@
     border-radius: 50%;
     /* background-color: yellow; */
 }
+
+/*----Style de todos os botões----*/
 
 .btn-icon {
     position: absolute;
@@ -48,10 +65,40 @@
 /*----Botão Principal----*/
 
 #btn01 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
     border: 1px solid rgb(87, 86, 86);
     background-color: rgb(68, 67, 67);
     z-index: 10;
+}
+
+.icon01 {
+    position: absolute;
+    opacity: 1;
+}
+
+.icon02 {
+    position: absolute;
+    opacity: 0;
+}
+
+@keyframes aumentar {
+    0% {
+        height: 50px;
+        width: 50px;
+    }
+
+    50% {
+        height: 60px;
+        width: 60px;
+    }
+
+    100% {
+        height: 70px;
+        width: 70px;
+    }
 }
 
 /*----Botões Animados----*/
@@ -124,24 +171,14 @@
         position: relative;
         top: 50%;
     }
+
     50% {
         position: relative;
-        top: 30px; 
+        top: 30px;
     }
+
     100% {
         position: relative;
         top: 50%;
-    }
-}
-
-@keyframes aumentar {
-    0% {
-
-    }
-    50% {
-
-    }
-    100% {
-
     }
 }
