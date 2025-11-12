@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!btn01 || !box) return;
 
-    const todosBtn = Array.from(box.querySelectorAll(".btn-icon")).filter(b => b.id == ".btn-icon");
+    const todosBtn = Array.from(box.querySelectorAll(".btn-icon")).filter(b => b.id !== "btn01");
 
     btn01.setAttribute("aria-expanded", "false");
 
@@ -22,15 +22,20 @@ document.addEventListener("DOMContentLoaded", () => {
     function closeMenu() {
         box.classList.remove("open");
         btn01.setAttribute("aria-expanded", "false");
-        todosBtn.forEach((btn, i)=> {
+        todosBtn.forEach((btn, i) => {
             btn.classList.remove("ativo");
             btn.style.transitionDelay = '';
         });
         const icon = btn01.querySelector("i");
-        if (icon) {icon.classList.replace("fa-xmark", "fa-bars"); }
+        if (icon) { icon.classList.replace("fa-xmark", "fa-bars"); }
     }
 
-    btn01.addEventListener("click",() => {
+    btn01.addEventListener("click", () => {
         box.classList.contains("open") ? closeMenu() : openMenu();
+    });
+    
+    document.addEventListener('click', (e) => {
+        if (!box.classList.contains('open')) return;
+        if (!box.contains(e.target) && e.target !== btn01) closeMenu();
     });
 })
