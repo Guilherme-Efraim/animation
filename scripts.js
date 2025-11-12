@@ -1,15 +1,36 @@
-const btn01 = document.getElementById("btn01")
-// const btn01on = document.getElementById("btn01on")
-const icon01 = document.getElementsByClassName("icon01")
-const icon02 = document.getElementsByClassName("icon02")
 
-const todosBtn = [...document.querySelectorAll(".btn-icon")]
+document.addEventListener("DOMContentLoaded", () => {
+    const btn01 = document.getElementById("btn01");
+    const box = document.querySelector(".box-btn");
 
+    if (!btn01 || !box) return;
 
-btn01.addEventListener("click", (evt) => {
+    const todosBtn = Array.from(box.querySelectorAll(".btn-icon")).filter(b => b.id == ".btn-icon");
 
-    todosBtn.map((ele, posi) => {
-        let btn = ele
-        btn.classList.toggle("ativo")
-    })
+    btn01.setAttribute("aria-expanded", "false");
+
+    function openMenu() {
+        box.classList.add("open");
+        btn01.setAttribute("aria-expanded", "true");
+        todosBtn.forEach((btn, i) => {
+            btn.classList.add("ativo");
+            btn.style.transitionDelay = `${i * 30}ms`;
+        });
+        const icon = btn01.querySelector("i");
+        if (icon) { icon.classList.replace("fa-bars", "fa-xmark"); }
+    }
+    function closeMenu() {
+        box.classList.remove("open");
+        btn01.setAttribute("aria-expanded", "false");
+        todosBtn.forEach((btn, i)=> {
+            btn.classList.remove("ativo");
+            btn.style.transitionDelay = '';
+        });
+        const icon = btn01.querySelector("i");
+        if (icon) {icon.classList.replace("fa-xmark", "fa-bars"); }
+    }
+
+    btn01.addEventListener("click",() => {
+        box.classList.contains("open") ? closeMenu() : openMenu();
+    });
 })
