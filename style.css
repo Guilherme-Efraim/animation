@@ -39,7 +39,6 @@ main h1 {
     /* background-color: yellow; */
 }
 
-
 .btn-icon {
     position: absolute;
     height: 50px;
@@ -62,16 +61,6 @@ main h1 {
     font-weight: 600;
     font-size: 1.5rem;
 }
-
-@keyframes girar {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
 
 #btn01 {
     font-weight: 600;
